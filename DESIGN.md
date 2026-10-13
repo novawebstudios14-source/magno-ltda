@@ -1,0 +1,40 @@
+# MAGNO LTDA: revisão institucional
+
+## Direção
+Site de um consultor empresarial com atuação documentada no Instagram, para donos de negócios e líderes. O elemento memorável é a fotografia em reunião com tipografia editorial baseada no contraste visual das publicações do próprio Magno. Manrope no corpo e navegação; Newsreader nas chamadas. Nenhuma palavra isolada troca de fonte ou cor para decoração.
+
+## Tokens
+Base clara #f0f2f2, papel #fafbf9, texto #24292a, secundário #58615f, cobre #9a480a, botão #252c2b. Tema escuro global por preferência do sistema: #17191a, #212426, #f0f1ed, cobre #eea367. Escala de espaços 8/16/24/32/48/64/100. Botões e campos raio 6px; navegação raio 10px. Fotografia em proporção 4:5. Ícones locais da Tabler; fontes locais em WOFF com licenças.
+
+## Navegação
+Barra fixa com navegação de áreas no desktop, painel móvel com foco por teclado e Escape, destaque da seção atual por IntersectionObserver. Âncoras originais preservadas. Novas âncoras método e dúvidas, e links diretos às quatro áreas. Sem scroll hijacking ou animação em todas as seções. Movimento restrito a feedback e abertura de painel; preferência por movimento reduzido respeitada.
+
+## Base factual
+Perfil @magnoltda observado em 13/10/2026: Magno Andrade, consultor, mentor, conselheiro, estrategista empresarial, fundador G.U.S.E; WhatsApp 5594991101046. MAGNO LTDA é a denominação solicitada pelo usuário, não razão social verificada.
+
+Publicação https://www.instagram.com/magnoltda/p/DVtIrElDdUL/ de 10/03/2026, carrossel consultado: diagnóstico da operação, processos administrativos, modelo comercial, gestão financeira, liderança e posicionamento; planejamento com metas e indicadores, organização das áreas e plano comercial; implementação com líderes, rotinas, ajuste de processos e treinamento; acompanhamento de indicadores, resultados comerciais, operação, equipe e faturamento. Temas incluem planejamento estratégico, governança, organização administrativa, gestão financeira, marketing estratégico, performance comercial, processos, equipe, liderança, plano comercial e expansão.
+
+Publicação https://www.instagram.com/magnoltda/p/DTcvMAMDtZ1/ de 13/01/2026: leitura dos números pelo dono. Foto original preservada na seção de conteúdos. Foto principal deriva dessa publicação com remoção digital do texto promocional pela ferramenta de imagens; atribuição preservada e tratamento informado na legenda. Regiões antes cobertas pelo texto foram reconstruídas; a foto tratada não deve ser usada como evidência independente de detalhes dessas regiões.
+
+Não há depoimentos, clientes, métricas, certificações, preços, cronograma ou promessa de retorno inventados. Descrições dos formatos da mentoria e aconselhamento são encaminhadas ao contato porque não foram detalhadas na fonte.
+
+## Skills consultadas nesta revisão
+Frontend Design: https://github.com/anthropics/skills/blob/main/skills/frontend-design/SKILL.md . Humanizer: https://github.com/blader/humanizer . Web Design Guidelines: https://github.com/vercel-labs/web-interface-guidelines . Leitura e aplicação na sessão, sem alegação de instalação permanente.
+
+## Verificação
+Fluxos DOM verificados: navegação, painel de áreas, menu móvel e foco, seleção de tema, validação e mensagem WhatsApp codificada, invalidação da mensagem após edição, âncoras e recursos, semântica de formulários, IDs e links externos. QA visual interativo pendente: control-browser indisponível e instalação do Chromium falhou na sessão anterior. Layout responsivo e temas revisados no código; isso não substitui teste visual. Acesso público preservado.
+
+## Ajuste após prints do usuário
+Removida a dupla botão primário e link secundário no hero; há uma única chamada textual discreta para o contato. As quatro linhas numeradas do método foram substituídas por dois parágrafos explicativos, sem enumeração, bordas ou cards repetidos. No celular: cabeçalho contínuo, menu em texto legível com alvos 48/52px, proteção das áreas de fundo por inert, captura da posição de rolagem antes de fixar o body e restauração ao fechar, foco transferido ao título da seção selecionada, safe areas e acomodação da altura útil. Esses comportamentos foram verificados no DOM; layout real em dispositivo continua pendente.
+
+## CTA flutuante
+Link fixo para WhatsApp no canto inferior direito, com nome acessível, ícone Tabler, área mínima 52px, compensação da safe area e espaço ao final da página. Oculto durante abertura do menu móvel para não competir com navegação nem entrar no ciclo de foco.
+
+## Hero simplificado
+Subtítulo e link de contato inline removidos conforme print. No celular, a foto vem diretamente após o título, com 26px de respiro. O CTA flutuante de WhatsApp permanece.
+
+## Apresentação do hero
+Título ampliado para Consultoria, mentoria e estratégia empresarial, apresentando a atuação de Magno sem limitar a entrada ao cenário de empresa que cresceu. Foto diretamente após o título no celular e CTA flutuante preservados.
+
+## Auditoria de qualidade — 13/10/2026
+Foto generativa removida. Hero usa a capa original da publicação DVtIrElDdUL, com atribuição; fotografias convertidas para WebP e variantes responsivas. Fontes WOFF2 com subconjunto latino; Newsreader fixada no peso 450 e tamanho óptico 18. SEO inclui canonical, Open Graph URL, Organization/Person/WebSite em JSON-LD, robots.txt e sitemap. Privacidade tem página separada e acesso no formulário. CTA continua fixo, mas é ocultado durante foco no formulário ou sobreposição com elemento focado. Verificação DOM/script: 22 casos; combinações principais de contraste calculadas acima de 4,5:1. QA visual, leitores de tela, Core Web Vitals e indexação não verificados. Domínio próprio pendente: usuário informou não possuir domínio. Razão social, CNPJ, autorização de uso das fotografias e retenção de conversas dependem de confirmação do responsável; não foram inventados. Não há vídeos. HTTPS usa a hospedagem atual; redirecionamento HTTP não comprovado.

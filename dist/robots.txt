@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://magno-ltda-novaweb.vercel.app/sitemap.xml

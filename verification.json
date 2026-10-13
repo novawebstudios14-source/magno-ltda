@@ -1,0 +1,28 @@
+{
+  "passed": 22,
+  "checks": [
+    "Menu opens, updates aria-expanded and closes with Escape",
+    "Navigation closes mobile menu",
+    "Blank fields show errors, focus name and do not prepare WhatsApp",
+    "Whitespace-only challenge rejected and focused",
+    "Service CTA selects matching interest",
+    "Unicode and HTML-like input encoded safely; preview contains text only",
+    "Editing inputs invalidates old message and URL",
+    "All local anchors and resources exist",
+    "External links have noopener and noreferrer",
+    "Form controls have labels and images explicit dimensions",
+    "Area navigation expands correct content, updates fragment target and closes panel",
+    "Mobile focus remains within menu and Escape returns focus",
+    "Selected service topic appears in preview and clears when interest changes",
+    "Heading structure and unique IDs",
+    "Reduced motion, responsive menu and themes defined",
+    "Mobile menu locks background interaction and restores scroll after closing",
+    "Selecting a mobile destination closes the menu and focuses its heading",
+    "Fixed CTA is hidden during form focus and restored outside the form",
+    "Fixed CTA hides when keyboard focus overlaps its rectangle",
+    "SEO canonical and factual JSON-LD are parseable",
+    "Privacy is linked next to the form and crawlable as a separate page",
+    "Responsive image candidate paths exist"
+  ],
+  "browser_qa": "NOT RUN: managed Sites control-browser capability unavailable. DOM checks are not real browser or device QA."
+}
