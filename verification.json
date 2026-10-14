@@ -24,14 +24,11 @@
     "Privacy is linked next to the form and crawlable as a separate page",
     "Responsive image candidate paths exist"
   ],
-  "browser_qa": "NOT RUN: real browser rendering, screen-reader and device testing unavailable in this session. DOM/script checks do not establish visual compliance.",
-  "contrast_ratios": {
-    "primary_button": 7.13,
-    "primary_button_hover": 8.51,
-    "light_accent": 5.43,
-    "light_body": 8.66,
-    "dark_accent": 9.0,
-    "dark_body": 10.88,
-    "method_body": 11.64
+  "browser_qa": "NOT RUN: real browser, screen-reader and device rendering unverified. DOM/script checks do not establish visual compliance.",
+  "content_revision": {
+    "main_word_count_before": 720,
+    "main_word_count_after": 439,
+    "photographic_blocks_before": 3,
+    "photographic_blocks_after": 6
   }
 }
