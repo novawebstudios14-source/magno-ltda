@@ -50,3 +50,14 @@ function updateContactClearance(){
 document.addEventListener('focusin',updateContactClearance);
 document.addEventListener('focusout',()=>requestAnimationFrame(updateContactClearance));
 window.addEventListener('resize',updateContactClearance,{passive:true});
+
+// The inline 2-second deadline also dismisses the intro if this script fails.
+const brandIntro=document.getElementById('brand-intro');
+if(document.documentElement.classList.contains('intro-active')){
+ document.querySelectorAll('body > :not(#brand-intro):not(script)').forEach(el=>{if(!el.inert){el.inert=true;el.setAttribute('data-intro-inert','');}});
+ const skip=document.getElementById('intro-skip');skip.addEventListener('click',window.finishMagnoIntro);
+ skip.focus({preventScroll:true});
+ brandIntro.addEventListener('keydown',event=>{if(event.key==='Escape'){event.preventDefault();window.finishMagnoIntro();}else if(event.key==='Tab'){event.preventDefault();skip.focus();}});
+ if(window.matchMedia){const motion=window.matchMedia('(prefers-reduced-motion: reduce)');if(motion.addEventListener)motion.addEventListener('change',event=>{if(event.matches)window.finishMagnoIntro();});}
+}
+window.addEventListener('pageshow',event=>{if(event.persisted&&window.finishMagnoIntro)window.finishMagnoIntro();});

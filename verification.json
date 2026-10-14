@@ -1,5 +1,5 @@
 {
-  "passed": 22,
+  "passed": 28,
   "checks": [
     "Menu opens, updates aria-expanded and closes with Escape",
     "Navigation closes mobile menu",
@@ -22,13 +22,13 @@
     "Fixed CTA hides when keyboard focus overlaps its rectangle",
     "SEO canonical and factual JSON-LD are parseable",
     "Privacy is linked next to the form and crawlable as a separate page",
-    "Responsive image candidate paths exist"
+    "Responsive image candidate paths exist",
+    "Reveal uses a fixed 2000ms deadline and releases inert content",
+    "Skip button opens the site immediately and moves focus to main",
+    "Escape dismisses the intro and Tab stays on its control",
+    "Reduced motion bypasses the intro",
+    "Deep links bypass the intro",
+    "Fail-safe dismisses the intro even without app.js"
   ],
-  "browser_qa": "NOT RUN: real browser, screen-reader and device rendering unverified. DOM/script checks do not establish visual compliance.",
-  "content_revision": {
-    "main_word_count_before": 720,
-    "main_word_count_after": 439,
-    "photographic_blocks_before": 3,
-    "photographic_blocks_after": 6
-  }
+  "browser_qa": "NOT RUN: real browser, screen-reader and device rendering unverified; DOM checks do not establish visual compliance."
 }
