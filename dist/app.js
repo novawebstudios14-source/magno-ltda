@@ -61,3 +61,21 @@ if(document.documentElement.classList.contains('intro-active')){
  if(window.matchMedia){const motion=window.matchMedia('(prefers-reduced-motion: reduce)');if(motion.addEventListener)motion.addEventListener('change',event=>{if(event.matches)window.finishMagnoIntro();});}
 }
 window.addEventListener('pageshow',event=>{if(event.persisted&&window.finishMagnoIntro)window.finishMagnoIntro();});
+
+// Native disclosure semantics stay intact; only the revealed content is animated.
+const disclosureMotion=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
+const disclosureAnimations=new Set();
+document.querySelectorAll('details.topic,details.faq-item').forEach(detail=>{
+ let currentAnimation=null;
+ detail.addEventListener('toggle',()=>{
+  if(currentAnimation){currentAnimation.cancel();disclosureAnimations.delete(currentAnimation);currentAnimation=null;}
+  if(!detail.open||(disclosureMotion&&disclosureMotion.matches))return;
+  const content=detail.querySelector('.topic-body')||detail.querySelector('p');
+  if(!content||typeof content.animate!=='function')return;
+  currentAnimation=content.animate([{opacity:0,transform:'translateY(6px)'},{opacity:1,transform:'translateY(0)'}],{duration:220,easing:'cubic-bezier(.2,.7,.2,1)'});
+  disclosureAnimations.add(currentAnimation);
+  const animation=currentAnimation;
+  animation.onfinish=()=>{disclosureAnimations.delete(animation);if(currentAnimation===animation)currentAnimation=null;};
+ });
+});
+if(disclosureMotion&&disclosureMotion.addEventListener)disclosureMotion.addEventListener('change',event=>{if(event.matches){disclosureAnimations.forEach(animation=>animation.cancel());disclosureAnimations.clear();}});

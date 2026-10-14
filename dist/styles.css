@@ -38,3 +38,29 @@ h1,h2,blockquote{font-family:Manrope,Arial,sans-serif;font-weight:750;font-optic
 
 /* Two-second native wordmark reveal; no video or external animation library. */
 .brand-intro{display:none;position:fixed;inset:0;z-index:100;background:#101114;color:#f8f9fc;place-items:center;padding:32px;isolation:isolate}.intro-active{overflow:hidden}.intro-active .brand-intro{display:grid;animation:intro-exit .28s ease-in 2.22s both}.intro-active body>:not(.brand-intro):not(script){visibility:hidden}.intro-lockup{text-align:center}.intro-brand{display:flex;align-items:baseline;justify-content:center;gap:clamp(10px,2.5vw,24px);font-family:Manrope,Arial,sans-serif;white-space:nowrap}.intro-name{display:inline-block;font-size:clamp(42px,11vw,112px);font-weight:800;letter-spacing:-.065em;line-height:1.15;animation:intro-name .7s cubic-bezier(.2,.8,.2,1) .12s both}.intro-company{display:inline-block;color:#ff7a25;font-size:clamp(19px,4vw,42px);font-weight:750;letter-spacing:.04em;animation:intro-company .6s cubic-bezier(.2,.8,.2,1) .4s both}.intro-description{font-size:clamp(12px,2.8vw,17px);letter-spacing:.06em;color:#bec5d1;margin-top:16px;animation:intro-description .5s ease-out .65s both}.intro-skip{position:absolute;right:max(24px,env(safe-area-inset-right,0px));bottom:calc(24px + env(safe-area-inset-bottom,0px));border:1px solid #737d8f;background:transparent;color:#f8f9fc;border-radius:6px;min-height:44px;padding:10px 16px;font-size:13px}.intro-skip:hover{border-color:#ff7a25;color:#ff9a55}.intro-skip:focus-visible{outline-color:#ff9a55}@keyframes intro-name{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}@keyframes intro-company{from{opacity:0;transform:translateX(-12px)}to{opacity:1;transform:translateX(0)}}@keyframes intro-description{from{opacity:0;transform:translateY(7px)}to{opacity:1;transform:translateY(0)}}@keyframes intro-exit{to{opacity:0;visibility:hidden}}@media(prefers-reduced-motion:reduce){.brand-intro{display:none!important}.intro-active{overflow:auto}.intro-active body>:not(.brand-intro):not(script){visibility:visible}.intro-name,.intro-company,.intro-description{animation:none}}
+
+/* Typographic rhythm and restrained interaction polish. */
+:root{--reading-leading:1.7;--interaction-ease:cubic-bezier(.2,.7,.2,1)}
+body{line-height:var(--reading-leading)}
+.hero h1{font-size:clamp(48px,4.7vw,72px);line-height:1.09;letter-spacing:-.045em;font-weight:750;max-width:15ch;text-wrap:balance}
+.hero-copy{min-width:0}.hero-person{margin-bottom:22px;letter-spacing:.015em}
+.section h2{font-size:clamp(36px,3.8vw,54px);line-height:1.14;letter-spacing:-.035em;font-weight:750;text-wrap:balance}
+.section-name{margin-bottom:18px;letter-spacing:.075em;line-height:1.4}
+.section-intro,.about-body .about-lead,.method-brief{line-height:1.65;max-width:42ch}
+.services-visual-layout .topic-title{font-size:clamp(21px,1.7vw,24px);line-height:1.35;letter-spacing:-.018em}
+.topic-description{line-height:1.6;max-width:40ch}.topic-body ul{font-size:13px;line-height:1.65}
+.editorial-feature h3,.editorial-secondary h3{font-size:clamp(23px,2.1vw,29px);line-height:1.25;letter-spacing:-.025em;max-width:26ch;text-wrap:balance}
+.hero-media figcaption,.about-photo figcaption,.visual-photo figcaption{font-size:12px;line-height:1.6}
+.faq-item summary{letter-spacing:-.01em;line-height:1.55}.faq-item summary::marker{color:var(--accent)}
+.fine{font-size:12px;line-height:1.65}.contact label{font-size:14px;line-height:1.5;margin-bottom:10px}
+.button,.floating-cta,.nav-contact{transition:background-color 180ms var(--interaction-ease),color 180ms var(--interaction-ease),border-color 180ms var(--interaction-ease),transform 180ms var(--interaction-ease)}
+.button img{transition:transform 180ms var(--interaction-ease)}
+.disclosure-icon{transition:transform 220ms var(--interaction-ease)}.topic[open] .disclosure-icon{transform:rotate(180deg)}
+input,textarea,select{transition:border-color 160ms ease,background-color 160ms ease}
+input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var(--accent)}
+.button:active,.floating-cta:active,.nav-contact:active{transform:translateY(1px)}
+@media(hover:hover) and (pointer:fine){.button:hover,.floating-cta:hover,.nav-contact:hover{transform:translateY(-2px)}.button:hover img[src$="arrow-up-right.svg"]{transform:translate(2px,-2px)}}
+@media(max-width:1099px){.hero h1{font-size:clamp(44px,5vw,60px)}.section h2{font-size:clamp(35px,4.2vw,48px)}}
+@media(max-width:767px){.hero h1{font-size:clamp(36px,8.8vw,54px);line-height:1.12;letter-spacing:-.035em;max-width:17ch}.hero-person{margin-bottom:16px}.section h2{font-size:clamp(32px,7.8vw,43px);line-height:1.17;letter-spacing:-.03em}.hero{padding-top:36px;gap:28px}.section-name{font-size:12px;margin-bottom:15px}.section-intro,.about-body .about-lead,.method-brief{font-size:16px;line-height:1.7}.services-visual-layout .topic-title{font-size:22px}.topic-description{font-size:14px;line-height:1.65}.editorial-feature h3,.editorial-secondary h3{font-size:24px;line-height:1.28}.faq-item summary{font-size:16px;min-height:44px}.button{line-height:1.45;letter-spacing:0}.floating-cta{font-size:13px}}
+@media(max-width:359px){.hero h1{font-size:34px;letter-spacing:-.025em}.section h2{font-size:31px}.button{padding-inline:16px}}
+@media(prefers-reduced-motion:reduce){.button,.floating-cta,.nav-contact,.button img,.disclosure-icon,input,textarea,select{transition:none!important}.button:hover,.floating-cta:hover,.nav-contact:hover,.button:active,.floating-cta:active,.nav-contact:active{transform:none}.button:hover img[src$="arrow-up-right.svg"]{transform:none}}

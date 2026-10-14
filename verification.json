@@ -23,12 +23,12 @@
     "SEO canonical and factual JSON-LD are parseable",
     "Privacy is linked next to the form and crawlable as a separate page",
     "Responsive image candidate paths exist",
-    "Reveal uses a fixed 2000ms deadline and releases inert content",
-    "Skip button opens the site immediately and moves focus to main",
-    "Escape dismisses the intro and Tab stays on its control",
-    "Reduced motion bypasses the intro",
-    "Deep links bypass the intro",
-    "Fail-safe dismisses the intro even without app.js"
+    "Non-interactive main focus never hides the floating CTA after intro",
+    "Service and FAQ openings animate only transform and opacity",
+    "Closing cancels a pending disclosure animation",
+    "Reduced motion does not animate disclosure contents",
+    "Switching to reduced motion cancels active animations",
+    "Native disclosures work without Web Animations support"
   ],
-  "browser_qa": "NOT RUN: real browser, screen-reader and device rendering unverified; DOM checks do not establish visual compliance."
+  "browser_qa": "NOT RUN: actual browser rendering, devices and screen readers remain unverified; DOM/script checks only."
 }
