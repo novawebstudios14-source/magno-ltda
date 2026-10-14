@@ -42,7 +42,7 @@ function updateContactClearance(){
  const editing=!!active&&form.contains(active)&&active!==document.body;
  document.body.classList.toggle('contact-editing',editing);
  document.body.classList.remove('focus-conflict');
- if(active&&active!==floatingContact&&active!==document.body&&typeof active.getBoundingClientRect==='function'){
+ if(active&&active!==floatingContact&&active.matches('a[href],button,input,textarea,select,summary,[role="button"],[role="link"]')&&typeof active.getBoundingClientRect==='function'){
   const focused=active.getBoundingClientRect();const fixed=floatingContact.getBoundingClientRect();
   if(focused.width>0&&focused.height>0&&focused.right>fixed.left&&focused.left<fixed.right&&focused.bottom>fixed.top&&focused.top<fixed.bottom)document.body.classList.add('focus-conflict');
  }
