@@ -80,37 +80,31 @@ document.querySelectorAll('details.topic,details.faq-item').forEach(detail=>{
 });
 if(disclosureMotion&&disclosureMotion.addEventListener)disclosureMotion.addEventListener('change',event=>{if(event.matches){disclosureAnimations.forEach(animation=>animation.cancel());disclosureAnimations.clear();}});
 
-// Autoplay pauses for focus, pointer interaction, hidden tabs and off-screen media.
+// Automatic photo rotation, with a keyboard-accessible pause control.
 const heroGallery=document.querySelector('.hero-gallery');
 if(heroGallery){
  const slides=[...heroGallery.querySelectorAll('.gallery-slide')];
  const pauseButton=document.getElementById('gallery-pause');
  const galleryMotion=window.matchMedia?window.matchMedia('(prefers-reduced-motion: reduce)'):null;
- let currentSlide=0,timer=null,userPaused=!!(galleryMotion&&galleryMotion.matches),hovered=false,focused=false,inView=true,touchStart=null;
- heroGallery.querySelector('.gallery-controls').hidden=false;
+ let currentSlide=0,timer=null,userPaused=false,inView=true;
+ pauseButton.hidden=false;
  function stopGallery(){if(timer!==null){clearInterval(timer);timer=null;}}
- function syncGallery(){stopGallery();pauseButton.disabled=!!(galleryMotion&&galleryMotion.matches);pauseButton.textContent=userPaused?'Reproduzir':'Pausar';if(!userPaused&&!hovered&&!focused&&inView&&!document.hidden&&!(galleryMotion&&galleryMotion.matches))timer=setInterval(()=>showGallery(currentSlide+1,false),4500);}
- function showGallery(index,manual){
-  currentSlide=(index+slides.length)%slides.length;
-  slides.forEach((slide,i)=>{const active=i===currentSlide;slide.classList.toggle('is-current',active);slide.setAttribute('aria-hidden',String(!active));});
-  document.getElementById('gallery-count').textContent=(currentSlide+1)+' / '+slides.length;
-  document.getElementById('gallery-source').href=slides[currentSlide].dataset.source;
-  if(manual){userPaused=true;document.getElementById('gallery-status').textContent='Foto '+(currentSlide+1)+' de '+slides.length;syncGallery();}
+ function syncGallery(){
+  stopGallery();
+  pauseButton.disabled=!!(galleryMotion&&galleryMotion.matches);
+  pauseButton.textContent=userPaused?'Reproduzir imagens':'Pausar imagens';
+  if(slides.length>1&&!userPaused&&inView&&!document.hidden&&!(galleryMotion&&galleryMotion.matches))
+   timer=setInterval(()=>{
+    currentSlide=(currentSlide+1)%slides.length;
+    slides.forEach((slide,i)=>{const active=i===currentSlide;slide.classList.toggle('is-current',active);slide.setAttribute('aria-hidden',String(!active));});
+   },4500);
  }
- document.getElementById('gallery-prev').addEventListener('click',()=>showGallery(currentSlide-1,true));
- document.getElementById('gallery-next').addEventListener('click',()=>showGallery(currentSlide+1,true));
  pauseButton.addEventListener('click',()=>{userPaused=!userPaused;syncGallery();});
- heroGallery.addEventListener('pointerenter',event=>{if(event.pointerType!=='touch'){hovered=true;syncGallery();}});
- heroGallery.addEventListener('pointerleave',()=>{hovered=false;syncGallery();});
- heroGallery.addEventListener('focusin',()=>{focused=true;syncGallery();});
- heroGallery.addEventListener('focusout',()=>requestAnimationFrame(()=>{focused=heroGallery.contains(document.activeElement);syncGallery();}));
- heroGallery.addEventListener('keydown',event=>{if(event.key==='ArrowRight'||event.key==='ArrowLeft'){event.preventDefault();showGallery(currentSlide+(event.key==='ArrowRight'?1:-1),true);}});
- const frame=heroGallery.querySelector('.gallery-frame');
- frame.addEventListener('touchstart',event=>{const t=event.changedTouches[0];touchStart={x:t.clientX,y:t.clientY};stopGallery();},{passive:true});
- frame.addEventListener('touchend',event=>{if(!touchStart)return;const t=event.changedTouches[0],dx=t.clientX-touchStart.x,dy=t.clientY-touchStart.y;touchStart=null;if(Math.abs(dx)>45&&Math.abs(dx)>Math.abs(dy))showGallery(currentSlide+(dx<0?1:-1),true);else syncGallery();},{passive:true});
- frame.addEventListener('touchcancel',()=>{touchStart=null;syncGallery();},{passive:true});
  document.addEventListener('visibilitychange',syncGallery);
- if(galleryMotion&&galleryMotion.addEventListener)galleryMotion.addEventListener('change',event=>{if(event.matches)userPaused=true;syncGallery();});
- if('IntersectionObserver' in window){const galleryObserver=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;syncGallery();},{threshold:.2});galleryObserver.observe(heroGallery);}
+ if(galleryMotion&&galleryMotion.addEventListener)galleryMotion.addEventListener('change',syncGallery);
+ if('IntersectionObserver' in window){
+  const observer=new IntersectionObserver(entries=>{inView=entries[0].isIntersecting;syncGallery();},{threshold:.2});
+  observer.observe(heroGallery);
+ }
  syncGallery();
 }
