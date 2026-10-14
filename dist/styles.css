@@ -64,3 +64,18 @@ input:focus-visible,textarea:focus-visible,select:focus-visible{border-color:var
 @media(max-width:767px){.hero h1{font-size:clamp(36px,8.8vw,54px);line-height:1.12;letter-spacing:-.035em;max-width:17ch}.hero-person{margin-bottom:16px}.section h2{font-size:clamp(32px,7.8vw,43px);line-height:1.17;letter-spacing:-.03em}.hero{padding-top:36px;gap:28px}.section-name{font-size:12px;margin-bottom:15px}.section-intro,.about-body .about-lead,.method-brief{font-size:16px;line-height:1.7}.services-visual-layout .topic-title{font-size:22px}.topic-description{font-size:14px;line-height:1.65}.editorial-feature h3,.editorial-secondary h3{font-size:24px;line-height:1.28}.faq-item summary{font-size:16px;min-height:44px}.button{line-height:1.45;letter-spacing:0}.floating-cta{font-size:13px}}
 @media(max-width:359px){.hero h1{font-size:34px;letter-spacing:-.025em}.section h2{font-size:31px}.button{padding-inline:16px}}
 @media(prefers-reduced-motion:reduce){.button,.floating-cta,.nav-contact,.button img,.disclosure-icon,input,textarea,select{transition:none!important}.button:hover,.floating-cta:hover,.nav-contact:hover,.button:active,.floating-cta:active,.nav-contact:active{transform:none}.button:hover img[src$="arrow-up-right.svg"]{transform:none}}
+
+/* Original MAGNO publications: stable image frame and unobtrusive gallery controls. */
+.gallery-frame{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:4px;background:#101114;touch-action:pan-y}
+.gallery-slide{position:absolute;inset:0;opacity:0;pointer-events:none;transition:opacity 420ms ease}
+.gallery-slide.is-current{opacity:1;pointer-events:auto}
+.hero-media .gallery-slide img{width:100%;height:100%;aspect-ratio:auto;object-fit:contain;border-radius:0}
+.gallery-controls{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:10px}
+.gallery-pages{display:flex;align-items:center;gap:8px}
+.gallery-controls button{min-width:44px;min-height:44px;display:inline-flex;align-items:center;justify-content:center;background:transparent;border:1px solid var(--line);border-radius:6px;color:var(--text);font:600 12px/1.4 Manrope,Arial,sans-serif;padding:8px 12px}
+.gallery-controls button:hover{border-color:var(--accent);background:var(--tint)}
+.gallery-controls button:active{transform:translateY(1px)}
+#gallery-count{font-size:12px;min-width:44px;text-align:center;font-variant-numeric:tabular-nums}
+#gallery-prev img{transform:rotate(90deg)}#gallery-next img{transform:rotate(-90deg)}
+@media(prefers-color-scheme:dark){.gallery-controls img{filter:invert(1)}}
+@media(prefers-reduced-motion:reduce){.gallery-slide{transition:none}.gallery-controls button:active{transform:none}}
